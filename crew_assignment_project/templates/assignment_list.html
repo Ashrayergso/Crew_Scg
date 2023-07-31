@@ -1,0 +1,34 @@
+```html
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Assignment List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Crew Member</th>
+        <th>Ship</th>
+        <th>Position</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for assignment in assignment_list %}
+        <tr>
+          <td>{{ assignment.crew_member }}</td>
+          <td>{{ assignment.ship }}</td>
+          <td>{{ assignment.position }}</td>
+          <td>{{ assignment.start_date }}</td>
+          <td>{{ assignment.end_date }}</td>
+          <td><a href="{% url 'assignment_detail' assignment.id %}">View</a></td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No assignments available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+```
