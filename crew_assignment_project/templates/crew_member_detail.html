@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Crew Member Detail</h2>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td>{{ crew_member.name }}</td>
+    </tr>
+    <tr>
+      <th>Position:</th>
+      <td>{{ crew_member.position }}</td>
+    </tr>
+    <tr>
+      <th>Contract Duration:</th>
+      <td>{{ crew_member.contract_duration }}</td>
+    </tr>
+    <tr>
+      <th>Vacation Time:</th>
+      <td>{{ crew_member.vacation_time }}</td>
+    </tr>
+    <tr>
+      <th>Qualifications:</th>
+      <td>
+        {% for qualification in crew_member.qualifications.all %}
+          {{ qualification.name }}<br>
+        {% endfor %}
+      </td>
+    </tr>
+  </table>
+  <a href="{% url 'crew_member_edit' crew_member.id %}">Edit</a>
+  <a href="{% url 'crew_member_delete' crew_member.id %}">Delete</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Qualification Detail</h2>
+  <table>
+    <tr>
+      <th>Qualification ID:</th>
+      <td>{{ qualification.id }}</td>
+    </tr>
+    <tr>
+      <th>Name:</th>
+      <td>{{ qualification.name }}</td>
+    </tr>
+    <tr>
+      <th>Description:</th>
+      <td>{{ qualification.description }}</td>
+    </tr>
+  </table>
+  <a href="{% url 'qualification_edit' qualification.id %}">Edit</a>
+  <a href="{% url 'qualification_delete' qualification.id %}">Delete</a>
+{% endblock %}

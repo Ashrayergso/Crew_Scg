@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Ship Detail</h2>
+  <table>
+    <tr>
+      <th>Name:</th>
+      <td>{{ ship.name }}</td>
+    </tr>
+    <tr>
+      <th>Model:</th>
+      <td>{{ ship.model }}</td>
+    </tr>
+    <tr>
+      <th>Capacity:</th>
+      <td>{{ ship.capacity }}</td>
+    </tr>
+    <tr>
+      <th>Current Crew:</th>
+      <td>{{ ship.current_crew }}</td>
+    </tr>
+  </table>
+
+  <h3>Assigned Crew Members</h3>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Contract Duration</th>
+    </tr>
+    {% for crew_member in ship.crew_members.all %}
+    <tr>
+      <td>{{ crew_member.name }}</td>
+      <td>{{ crew_member.position }}</td>
+      <td>{{ crew_member.contract_duration }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <a href="{% url 'ship_list' %}">Back to Ship List</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Ship Crew Allowance Detail</h2>
+  <table>
+    <tr>
+      <th>Ship</th>
+      <td>{{ ship_crew_allowance.ship }}</td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td>{{ ship_crew_allowance.position }}</td>
+    </tr>
+    <tr>
+      <th>Allowance</th>
+      <td>{{ ship_crew_allowance.allowance }}</td>
+    </tr>
+  </table>
+  <a href="{% url 'ship_crew_allowance_edit' ship_crew_allowance.id %}">Edit</a>
+  <a href="{% url 'ship_crew_allowance_delete' ship_crew_allowance.id %}">Delete</a>
+{% endblock %}

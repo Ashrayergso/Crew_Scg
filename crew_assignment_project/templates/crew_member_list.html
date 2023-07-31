@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Crew Members</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Contract Duration</th>
+        <th>Vacation Time</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for crew_member in crew_members %}
+        <tr>
+          <td>{{ crew_member.name }}</td>
+          <td>{{ crew_member.position }}</td>
+          <td>{{ crew_member.contract_duration }}</td>
+          <td>{{ crew_member.vacation_time }}</td>
+          <td>
+            <a href="{% url 'crew_member_detail' crew_member.id %}">View</a> |
+            <a href="{% url 'crew_member_edit' crew_member.id %}">Edit</a> |
+            <a href="{% url 'crew_member_delete' crew_member.id %}">Delete</a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">No crew members found.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a href="{% url 'crew_member_new' %}">Add New Crew Member</a>
+{% endblock %}

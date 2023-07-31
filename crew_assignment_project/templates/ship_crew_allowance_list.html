@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Ship Crew Allowance List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Ship</th>
+        <th>Position</th>
+        <th>Allowance</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for allowance in allowances %}
+      <tr>
+        <td>{{ allowance.ship.name }}</td>
+        <td>{{ allowance.position.name }}</td>
+        <td>{{ allowance.allowance }}</td>
+        <td><a href="{% url 'ship_crew_allowance_detail' allowance.id %}">View Details</a></td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="3">No allowances found.</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
