@@ -1,21 +1,22 @@
-{% extends 'base.html' %}
+```html
+{% extends 'base_generic.html' %}
 
 {% block content %}
-  <h2>Ship List</h2>
+  <h1>Ship List</h1>
   <table>
     <thead>
       <tr>
         <th>Name</th>
-        <th>Type</th>
+        <th>Model</th>
         <th>Capacity</th>
         <th>Operations</th>
       </tr>
     </thead>
     <tbody>
-      {% for ship in ships %}
+      {% for ship in ship_list %}
         <tr>
           <td>{{ ship.name }}</td>
-          <td>{{ ship.type }}</td>
+          <td>{{ ship.model }}</td>
           <td>{{ ship.capacity }}</td>
           <td>
             <a href="{% url 'ship_detail' ship.id %}">View</a> |
@@ -30,5 +31,6 @@
       {% endfor %}
     </tbody>
   </table>
-  <a href="{% url 'ship_new' %}">Add New Ship</a>
+  <a href="{% url 'ship_create' %}">Add New Ship</a>
 {% endblock %}
+```

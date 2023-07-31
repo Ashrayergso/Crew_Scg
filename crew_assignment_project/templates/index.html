@@ -1,0 +1,25 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crew Assignment Project</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'crewmember_list' %}">Crew Members</a></li>
+            <li><a href="{% url 'ship_list' %}">Ships</a></li>
+            <li><a href="{% url 'assignment_list' %}">Assignments</a></li>
+        </ul>
+    </nav>
+    <main>
+        <h1>Welcome to the Crew Assignment Project</h1>
+        <p>This application automates the assignment of crew members to ships. It considers various factors such as crew position, contract duration, and vacation time for optimal assignment, promoting efficiency and reducing errors in crew scheduling.</p>
+    </main>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
+```

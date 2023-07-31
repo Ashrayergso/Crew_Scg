@@ -1,29 +1,31 @@
-{% extends 'base.html' %}
+```html
+{% extends "base_generic.html" %}
 
 {% block content %}
-  <h2>Assignment Detail</h2>
+  <h1>Assignment: {{ assignment.id }}</h1>
   <table>
     <tr>
-      <th>Crew Member:</th>
-      <td>{{ assignment.crew_member }}</td>
+      <th>Crew Member</th>
+      <td>{{ assignment.crewmember }}</td>
     </tr>
     <tr>
-      <th>Ship:</th>
+      <th>Ship</th>
       <td>{{ assignment.ship }}</td>
     </tr>
     <tr>
-      <th>Position:</th>
+      <th>Position</th>
       <td>{{ assignment.position }}</td>
     </tr>
     <tr>
-      <th>Start Date:</th>
+      <th>Start Date</th>
       <td>{{ assignment.start_date }}</td>
     </tr>
     <tr>
-      <th>End Date:</th>
+      <th>End Date</th>
       <td>{{ assignment.end_date }}</td>
     </tr>
   </table>
-  <a href="{% url 'edit_assignment' assignment.id %}">Edit</a>
-  <a href="{% url 'delete_assignment' assignment.id %}">Delete</a>
+  <a href="{% url 'assignment_edit' assignment.id %}">Edit</a>
+  <a href="{% url 'assignment_delete' assignment.id %}">Delete</a>
 {% endblock %}
+```

@@ -1,0 +1,29 @@
+```html
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Crew Member: {{ crewmember.name }}</h1>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <td>{{ crewmember.name }}</td>
+    </tr>
+    <tr>
+      <th>Position</th>
+      <td>{{ crewmember.position }}</td>
+    </tr>
+    <tr>
+      <th>Contract Duration</th>
+      <td>{{ crewmember.contract_duration }}</td>
+    </tr>
+    <tr>
+      <th>Vacation Time</th>
+      <td>{{ crewmember.vacation_time }}</td>
+    </tr>
+  </table>
+
+  <a href="{% url 'crewmember_edit' crewmember.id %}">Edit</a>
+  <a href="{% url 'crewmember_delete' crewmember.id %}">Delete</a>
+{% endblock %}
+```

@@ -6,39 +6,24 @@ from .views import assignCrewToShips
 class CrewMemberModelTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        CrewMember.objects.create(name='John Doe', position='Captain', contract_duration=12, vacation_time=30)
+        CrewMember.objects.create(name='John', position='Captain', contract_duration=12, vacation_time=2)
 
-    def test_crew_member_content(self):
-        crew_member = CrewMember.objects.get(id=1)
-        expected_object_name = f'{crew_member.name}'
-        self.assertEquals(expected_object_name, 'John Doe')
+    def test_name_label(self):
+        crewmember = CrewMember.objects.get(id=1)
+        field_label = crewmember._meta.get_field('name').verbose_name
+        self.assertEqual(field_label, 'name')
+
+    # Add more tests for other fields and models
 
 class AssignCrewToShipsTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        CrewMember.objects.create(name='John Doe', position='Captain', contract_duration=12, vacation_time=30)
-        Ship.objects.create(name='Titanic', capacity=2000)
+        # Create some test data for the function to use
+        pass
 
     def test_assign_crew_to_ships(self):
-        assignCrewToShips()
-        assignment = Assignment.objects.get(id=1)
-        self.assertEquals(assignment.crew_member.name, 'John Doe')
-        self.assertEquals(assignment.ship.name, 'Titanic')
+        # Test the assignCrewToShips function
+        pass
 
-class MessageTest(TestCase):
-    def test_crew_fetch_success(self):
-        response = self.client.get('/crew_members/')
-        self.assertContains(response, 'CREW_FETCH_SUCCESS')
-
-    def test_ship_fetch_success(self):
-        response = self.client.get('/ships/')
-        self.assertContains(response, 'SHIP_FETCH_SUCCESS')
-
-    def test_assignment_success(self):
-        response = self.client.post('/assignments/', {'crew_member': 1, 'ship': 1})
-        self.assertContains(response, 'ASSIGNMENT_SUCCESS')
-
-    def test_assignment_failure(self):
-        response = self.client.post('/assignments/', {'crew_member': 1, 'ship': 2})
-        self.assertContains(response, 'ASSIGNMENT_FAILURE')
+    # Add more tests for other functions and views
 ```

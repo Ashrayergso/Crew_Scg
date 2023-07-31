@@ -1,3 +1,4 @@
+```python
 """
 WSGI config for crew_assignment_project project.
 
@@ -14,3 +15,4 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'crew_assignment_project.settings')
 
 application = get_wsgi_application()
+```

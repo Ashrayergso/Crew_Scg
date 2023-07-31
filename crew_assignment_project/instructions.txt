@@ -1,42 +1,48 @@
 # Crew Assignment Project Setup and Installation Instructions
 
 1. Clone the repository to your local machine.
+```
+git clone <repository_url>
+```
 
-2. Navigate to the project directory `crew_assignment_project`.
+2. Navigate to the project directory.
+```
+cd crew_assignment_project
+```
 
-3. Create a new Python environment using Conda:
-   ```
-   conda create --name crew_assignment_env python=3.8
-   ```
+3. Create a new Python environment using Conda.
+```
+conda create --name crew_assignment_env python=3.8
+```
 
-4. Activate the newly created environment:
-   ```
-   conda activate crew_assignment_env
-   ```
+4. Activate the new environment.
+```
+conda activate crew_assignment_env
+```
 
-5. Install the required dependencies from `requirements.txt`:
-   ```
-   pip install -r requirements.txt
-   ```
+5. Install the required dependencies.
+```
+pip install -r requirements.txt
+```
 
 6. Set up the PostgreSQL database. Make sure PostgreSQL is installed and running on your machine. Create a new database and update the `DATABASES` configuration in `settings.py` with your database name, user, and password.
 
-7. Run the migrations to create the database schema:
-   ```
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
+7. Run the migrations to create the database schema.
+```
+python manage.py makemigrations
+python manage.py migrate
+```
 
-8. Start the Django development server:
-   ```
-   python manage.py runserver
-   ```
+8. Start the Django development server.
+```
+python manage.py runserver
+```
 
 9. Open your web browser and navigate to `http://localhost:8000` to view the application.
 
 10. To run tests, use the following command:
-    ```
-    python manage.py test
-    ```
+```
+python manage.py test
+```
 
-Remember to review the code and ensure the `settings.py`, `urls.py` for both project and app are set up correctly. Ensure that forms are created and referenced properly. Happy coding!
+Remember to review the code and ensure the `settings.py`, `urls.py` for both project and app are set up correctly. Also, ensure that forms are created and referenced properly.
